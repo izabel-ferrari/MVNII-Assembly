@@ -230,7 +230,7 @@ SEPARABYTES LD MNEM ; 0602 8012 ; Carrega o valor de MNEM
 / K100              ; 0606 7030 - Divide o valor por 0x100
 MM BYTE2            ; 0608 9026 - Armazena o byte na variável Byte2MNEM
 LD MNEM             ; 060A 8012 - Carrega o valor de MNEM no acumulador
-/ 100               ; 060C 7030 - Divide por 0x100
+/ K100               ; 060C 7030 - Divide por 0x100
 MM BYTE1            ; 060E 9024 - Armazena o byte na variável Byte1MNEM
 # SEPARABYTES       ; 0610 B600 - Retorna para o endereço contido em 0x600
 ; ================================================================================
