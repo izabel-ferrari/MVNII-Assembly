@@ -122,7 +122,7 @@ MNEM2OP SC SEPARABYTES ; 0202 A600 - Chamando a sub-rotina de separação dos by
         - K018         ; 0216 5036 - Subtrai 0x018 do valor carregado no acumulador
         JN M147        ; 0218 2254 - Desvio se acumulador é negativo (Byte1MNEM = 0x047)
         - K001         ; 021A 5028 - Subtrai 0x001 do valor carregado no acumulador
-        JN B148        ; 021C 225A - Desvio se acumulador é negativo (Byte1MNEM = 0x048)
+        JN M148        ; 021C 225A - Desvio se acumulador é negativo (Byte1MNEM = 0x048)
         - K002         ; 021E 5034 - Subtrai 0x002 do valor carregado no acumulador 
         JN M14A        ; 0220 227E - Desvio se acumulador é negativo (Byte1MNEM = 0x04A)
         - K002         ; 0222 5034 - Subtrai 0x002 do valor carregado no acumulador 
