@@ -181,7 +181,7 @@ MM OP                  ; 028A 9010 - Armazena o valor carregado na variável glo
 # MNEM2OP               ; 028C B200 - Retorna para o endereço contido em 0x0200
 M250 LV /0000          ; 028E 3000 - Carrega o valor 0x000 no acumulador (OPCODE = 0x000)
 MM OP                  ; 0290 9010 - Armazena o valor carregado na variável global OPCODE
-#MNEM2OP               ; 0292 B200 - Retorna para o endereço contido em 0x0200
+# MNEM2OP               ; 0292 B200 - Retorna para o endereço contido em 0x0200
 M25A LV /0001          ; 0294 3001 - Carrega o valor 0x001 no acumulador (OPCODE = 0x001)
 MM OP                  ; 0296 9010 - Armazena o valor carregado na variável global OPCODE
 # MNEM2OP               ; 0298 B200 - Retorna para o endereço contido em 0x0200
