@@ -205,22 +205,22 @@ SC TESTESMNEM2OP      ; 0304 A900 - Chama a sub-rotina de testes de MNEM2OP
 ; ================================================================================
 ; Tabela de mnemônicos
 ; ================================================================================
-MJP /4A50 ; 0400 4A50 - Valor em hexadecimal de MNEM = JP
-MJZ /4A5A ; 0402 4A5A - Valor em hexadecimal de MNEM = JZ
-MJN /4A4E ; 0404 4A4E - Valor em hexadecimal de MNEM = JN
-MLV /4C56 ; 0406 4C56 - Valor em hexadecimal de MNEM = LV
-M+_ /2B5F ; 0408 2B5F - Valor em hexadecimal de MNEM = +_
-M-_ /2D5F ; 040A 2D5F - Valor em hexadecimal de MNEM = -_
-M*_ /2A5F ; 040C 2A5F - Valor em hexadecimal de MNEM = *_
-M/_ /2F5F ; 040E 2F5F - Valor em hexadecimal de MNEM = /_
-MLD /4C44 ; 0410 4C44 - Valor em hexadecimal de MNEM = LD
-MMM /4D4D ; 0412 4D4D - Valor em hexadecimal de MNEM = MM
-MSC /5343 ; 0414 5343 - Valor em hexadecimal de MNEM = SC
-MRS /5253 ; 0416 5253 - Valor em hexadecimal de MNEM = RS
-MHM /484D ; 0418 484D - Valor em hexadecimal de MNEM = HM
-MGD /4744 ; 041A 4744 - Valor em hexadecimal de MNEM = GD
-MPD /5044 ; 041C 5044 - Valor em hexadecimal de MNEM = PD
-MOS /4F53 ; 041E 4F53 - Valor em hexadecimal de MNEM = OS
+MJP MM /4A50 ; 0400 4A50 - Valor em hexadecimal de MNEM = JP
+MJZ MM /4A5A ; 0402 4A5A - Valor em hexadecimal de MNEM = JZ
+MJN MM /4A4E ; 0404 4A4E - Valor em hexadecimal de MNEM = JN
+MLV MM /4C56 ; 0406 4C56 - Valor em hexadecimal de MNEM = LV
+M+_ MM /2B5F ; 0408 2B5F - Valor em hexadecimal de MNEM = +_
+M-_ MM /2D5F ; 040A 2D5F - Valor em hexadecimal de MNEM = -_
+M*_ MM /2A5F ; 040C 2A5F - Valor em hexadecimal de MNEM = *_
+M/_ MM /2F5F ; 040E 2F5F - Valor em hexadecimal de MNEM = /_
+MLD MM /4C44 ; 0410 4C44 - Valor em hexadecimal de MNEM = LD
+MMM MM /4D4D ; 0412 4D4D - Valor em hexadecimal de MNEM = MM
+MSC MM /5343 ; 0414 5343 - Valor em hexadecimal de MNEM = SC
+MRS MM /5253 ; 0416 5253 - Valor em hexadecimal de MNEM = RS
+MHM MM /484D ; 0418 484D - Valor em hexadecimal de MNEM = HM
+MGD MM /4744 ; 041A 4744 - Valor em hexadecimal de MNEM = GD
+MPD MM /5044 ; 041C 5044 - Valor em hexadecimal de MNEM = PD
+MOS MM /4F53 ; 041E 4F53 - Valor em hexadecimal de MNEM = OS
 ; ===============================================================================
 ; Implementação da sub-rotina de separação de bytes de MNEM
 ; ================================================================================
