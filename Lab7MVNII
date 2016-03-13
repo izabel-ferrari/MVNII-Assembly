@@ -272,7 +272,7 @@ LD MNEM           ; 073E 8012 - Carrega o valor de MNEM para o acumulador
 PD /100           ; 0740 E100 - Imprime o valor de MNEM
 # IMPRIME         ; 0742 B700 - Retorna para o endereço em 0x700
 IMPRIMENUMS LD OP ; 0744 8010 - Carrega o valor de OPCODE para o acumulador
-+ K03C            ; 0746 403C - Soma 0x030 ao valor de OPCODE
++ K030            ; 0746 403C - Soma 0x030 ao valor de OPCODE
 PD /100           ; 0748 E100 - Imprime o valor de OPCODE
 LV /0020          ; 074A 3020 - Carrega " " para o acumulador
 PD /100           ; 074C E100 - Imprime " "
