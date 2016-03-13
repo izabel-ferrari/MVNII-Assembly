@@ -171,7 +171,7 @@ MM OP                  ; 0274 9010 - Armazena o valor carregado na variável glo
 M153 LV /000A          ; 0278 300A - Carrega o valor 0x00A no acumulador (OPCODE = 0x00A)
 MM OP                  ; 027A 9010 - Armazena o valor carregado na variável global OPCODE
 # MNEM2OP              ; 027C B200 - Retorna para o endereço contido em 0x0200
-LD BYTE2               ; 027E 8026 - Carrega o valor de Byte2MNEM no acumulador
+M14A LD BYTE2               ; 027E 8026 - Carrega o valor de Byte2MNEM no acumulador
 - K050                 ; 0280 5038 - Subtrai 0x050 do valor do acumulador
 JN M24E                ; 0282 2288 - Desvio se negativo (MNEM = 4A4E)
 JZ M250                ; 0284 128E - Desvio se zero (MNEM = 4A50)
@@ -185,7 +185,7 @@ MM OP                  ; 0290 9010 - Armazena o valor carregado na variável glo
 M25A LV /0001          ; 0294 3001 - Carrega o valor 0x001 no acumulador (OPCODE = 0x001)
 MM OP                  ; 0296 9010 - Armazena o valor carregado na variável global OPCODE
 # MNEM2OP              ; 0298 B200 - Retorna para o endereço contido em 0x0200
-LD BYTE2               ; 029A 8026 - Carrega o valor de Byte2MNEM no acumulador
+M14C LD BYTE2               ; 029A 8026 - Carrega o valor de Byte2MNEM no acumulador
 - K056                 ; 029C 503A - Subtrai 0x056 do valor do acumulador
 JN M244                ; 029E 22A2 - Desvio se negativo (MNEM = 4C44)
 JZ M256                ; 02A0 12A8 - Desvio se zero (MNEM = 4C56)
