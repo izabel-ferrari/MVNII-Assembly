@@ -13,5 +13,5 @@ PD /0100
 SOMADOR LD VALOR1
         + VALOR2
         MM SAIDA
-        RS /0000
+        RS /0100
 # SOMADOR
