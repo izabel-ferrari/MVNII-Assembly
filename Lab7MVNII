@@ -56,55 +56,55 @@ OP2MNEM  LD OP ; 0102 8010 - Carrega o valor de OP no acumulador
         JN OPE ; 013E 219A - Desvio se o acumulador é negativo (OPCODE = 0x00E)
         - K001 ; 0140 5028 - Subtrai 0x001 do valor do acumulador
         JN OPF ; 0142 21A0 - Desvio se o acumulador é negativo (OPCODE = 0x00F)
-#OP2MNEM       ; 0144 B100 - Retorna para o endereço contido em 0x100
+# OP2MNEM       ; 0144 B100 - Retorna para o endereço contido em 0x100
 OP0 LD MJP     ; 0146 8400 - Carrega o valor em hexadecimal de MNEM = JP
 MM MNEM        ; 0148 9012 - Guarda o valor carregado em MNEM
-#OP2MNEM       ; 014A B100 - Retorna para o endereço contido em 0x100
+# OP2MNEM       ; 014A B100 - Retorna para o endereço contido em 0x100
 OP1 LD MJZ     ; 014C 8402 - Carrega o valor em hexadecimal de MNEM = JZ
 MM MNEM        ; 014E 9012 - Guarda o valor carregado em MNEM
-#OP2MNEM       ; 0150 B100 - Retorna para o endereço contido em 0x100
+# OP2MNEM       ; 0150 B100 - Retorna para o endereço contido em 0x100
 OP2 LD MJN     ; 0152 8404 - Carrega o valor em hexadecimal de MNEM = JN
 MM MNEM        ; 0154 9012 - Guarda o valor carregado em MNEM
-#OP2MNEM       ; 0156 B100 - Retorna para o endereço contido em 0x100
+# OP2MNEM       ; 0156 B100 - Retorna para o endereço contido em 0x100
 OP3 LD MLV     ; 0158 8406 - Carrega o valor em hexadecimal de MNEM = LV
 MM MNEM        ; 015A 9012 - Guarda o valor carregado em MNEM
-#OP2MNEM       ; 015C B100 - Retorna para o endereço contido em 0x100
+# OP2MNEM       ; 015C B100 - Retorna para o endereço contido em 0x100
 OP4 LD M+_     ; 015E 8408 - Carrega o valor em hexadecimal de MNEM = +_
 MM MNEM        ; 0160 9012 - Guarda o valor carregado em MNEM
-#OP2MNEM       ; 0162 B100 - Retorna para o endereço contido em 0x100
+# OP2MNEM       ; 0162 B100 - Retorna para o endereço contido em 0x100
 OP5 LD M-_     ; 0164 840A - Carrega o valor em hexadecimal de MNEM = -_
 MM MNEM        ; 0166 9012 - Guarda o valor carregado em MNEM
-#OP2MNEM       ; 0168 B100 - Retorna para o endereço contido em 0x100
+# OP2MNEM       ; 0168 B100 - Retorna para o endereço contido em 0x100
 OP6 LD M*_     ; 016A 840C - Carrega o valor em hexadecimal de MNEM = *_
 MM MNEM        ; 016C 9012 - Guarda o valor carregado em MNEM
-#OP2MNEM       ; 016E B100 - Retorna para o endereço contido em 0x100
+# OP2MNEM       ; 016E B100 - Retorna para o endereço contido em 0x100
 OP7 LD M/_     ; 0170 840E - Carrega o valor em hexadecimal de MNEM = /_
 MM MNEM        ; 0172 9012 - Guarda o valor carregado em MNEM
-#OP2MNEM       ; 0174 B100 - Retorna para o endereço contido em 0x100
+# OP2MNEM       ; 0174 B100 - Retorna para o endereço contido em 0x100
 OP8 LD MLD     ; 0176 8410 - Carrega o valor em hexadecimal de MNEM = LD
 MM MNEM        ; 0178 9012 - Guarda o valor carregado em MNEM
-#OP2MNEM       ; 017A B100 - Retorna para o endereço contido em 0x100
+# OP2MNEM       ; 017A B100 - Retorna para o endereço contido em 0x100
 OP9 LD MMM     ; 017C 8412 - Carrega o valor em hexadecimal de MNEM = MM
 MM MNEM        ; 017E 9012 - Guarda o valor carregado em MNEM
-#OP2MNEM       ; 0180 B100 - Retorna para o endereço contido em 0x100
+# OP2MNEM       ; 0180 B100 - Retorna para o endereço contido em 0x100
 OPA LD MSC     ; 0182 8414 - Carrega o valor em hexadecimal de MNEM = SC
 MM MNEM        ; 0184 9012 - Guarda o valor carregado em MNEM
-#OP2MNEM       ; 0186 B100 - Retorna para o endereço contido em 0x100
+# OP2MNEM       ; 0186 B100 - Retorna para o endereço contido em 0x100
 OPB LD MRS     ; 0188 8416 - Carrega o valor em hexadecimal de MNEM = RS
 MM MNEM        ; 018A 9012 - Guarda o valor carregado em MNEM
-#OP2MNEM       ; 018C B100 - Retorna para o endereço contido em 0x100
+# OP2MNEM       ; 018C B100 - Retorna para o endereço contido em 0x100
 OPC LD MHM     ; 018E 8418 - Carrega o valor em hexadecimal de MNEM = HM
 MM MNEM        ; 0190 9012 - Guarda o valor carregado em MNEM
-#OP2MNEM       ; 0192 B100 - Retorna para o endereço contido em 0x100
+# OP2MNEM       ; 0192 B100 - Retorna para o endereço contido em 0x100
 OPD LD MGD     ; 0194 841A - Carrega o valor em hexadecimal de MNEM = GD
 MM MNEM        ; 0196 9012 - Guarda o valor carregado em MNEM
-#OP2MNEM       ; 0198 B100 - Retorna para o endereço contido em 0x100
+# OP2MNEM       ; 0198 B100 - Retorna para o endereço contido em 0x100
 OPE LD MPD     ; 019A 841C - Carrega o valor em hexadecimal de MNEM = PD
 MM MNEM        ; 019C 9012 - Guarda o valor carregado em MNEM
-#OP2MNEM       ; 019E B100 - Retorna para o endereço contido em 0x100
+# OP2MNEM       ; 019E B100 - Retorna para o endereço contido em 0x100
 OPF LD MOS     ; 01A0 841E - Carrega o valor em hexadecimal de MNEM = OS
 MM MNEM        ; 01A2 9012 - Guarda o valor carregado em MNEM
-#OP2MNEM       ; 01A4 B100 - Retorna para o endereço contido em 0x100
+# OP2MNEM       ; 01A4 B100 - Retorna para o endereço contido em 0x100
 ; ================================================================================
 ; Implementação da sub-rotina MNEM2OP
 ; ================================================================================
@@ -137,40 +137,40 @@ MNEM2OP SC SEPARABYTES ; 0202 A600 - Chamando a sub-rotina de separação dos by
         JN M152        ; 0234 2272 - Desvio se acumulador é negativo (Byte1MNEM = 0x052)
         - K001         ; 0236 5028 - Subtrai 0x001 do valor carregado no acumulador
         JN M153        ; 0238 2278 - Desvio se acumulador é negativo (Byte1MNEM = 0x053)
-#MNEM2OP               ; 023A B200 - Retorna para o endereço contido em 0x0200
+# MNEM2OP               ; 023A B200 - Retorna para o endereço contido em 0x0200
 M12A LV /0006          ; 023C 3006 - Carrega o valor 0x006 no acumulador (OPCODE = 0x006)
 MM OP                  ; 023E 9010 - Armazena o valor carregado na variável global OPCODE
-#MNEM2OP               ; 0240 B200 - Retorna para o endereço contido em 0x0200
+# MNEM2OP               ; 0240 B200 - Retorna para o endereço contido em 0x0200
 M12B LV /0004          ; 0242 3004 - Carrega o valor 0x004 no acumulador (OPCODE = 0x004)
 MM OP                  ; 0244 9010 - Armazena o valor carregado na variável global OPCODE
-#MNEM2OP               ; 0246 B200 - Retorna para o endereço contido em 0x0200
+# MNEM2OP               ; 0246 B200 - Retorna para o endereço contido em 0x0200
 M12D LV /0005          ; 0248 3005 - Carrega o valor 0x005 no acumulador (OPCODE = 0x005)
 MM OP                  ; 024A 9010 - Armazena o valor carregado na variável global OPCODE
-#MNEM2OP               ; 024C B200 - Retorna para o endereço contido em 0x0200
+# MNEM2OP               ; 024C B200 - Retorna para o endereço contido em 0x0200
 M12F LV /0007          ; 024E 3007 - Carrega o valor 0x007 no acumulador (OPCODE = 0x007)
 MM OP                  ; 0250 9010 - Armazena o valor carregado na variável global OPCODE
-#MNEM2OP               ; 0252 B200 - Retorna para o endereço contido em 0x0200
+# MNEM2OP               ; 0252 B200 - Retorna para o endereço contido em 0x0200
 M147 LV /000D          ; 0254 300D - Carrega o valor 0x00D no acumulador (OPCODE = 0x00D)
 MM OP                  ; 0256 9010 - Armazena o valor carregado na variável global OPCODE
-#MNEM2OP               ; 0258 B200 - Retorna para o endereço contido em 0x0200
+# MNEM2OP               ; 0258 B200 - Retorna para o endereço contido em 0x0200
 M148 LV /000C          ; 025A 300C - Carrega o valor 0x00C no acumulador (OPCODE = 0x00C)
 MM OP                  ; 025C 9010 - Armazena o valor carregado na variável global OPCODE
-#MNEM2OP               ; 025E B200 - Retorna para o endereço contido em 0x0200
+# MNEM2OP               ; 025E B200 - Retorna para o endereço contido em 0x0200
 M14D LV /0009          ; 0260 3009 - Carrega o valor 0x009 no acumulador (OPCODE = 0x009)
 MM OP                  ; 0262 9010 - Armazena o valor carregado na variável global OPCODE
-#MNEM2OP               ; 0264 B200 - Retorna para o endereço contido em 0x0200
+# MNEM2OP               ; 0264 B200 - Retorna para o endereço contido em 0x0200
 M14F LV /000F          ; 0266 300F - Carrega o valor 0x00F no acumulador (OPCODE = 0x00F)
 MM OP                  ; 0268 9010 - Armazena o valor carregado na variável global OPCODE
-#MNEM2OP               ; 026A B200 - Retorna para o endereço contido em 0x0200
+# MNEM2OP               ; 026A B200 - Retorna para o endereço contido em 0x0200
 M150 LV /000E          ; 026C 300E - Carrega o valor 0x00E no acumulador (OPCODE = 0x00E)
 MM OP                  ; 026E 9010 - Armazena o valor carregado na variável global OPCODE
-#MNEM2OP               ; 0270 B200 - Retorna para o endereço contido em 0x0200
+# MNEM2OP               ; 0270 B200 - Retorna para o endereço contido em 0x0200
 M152 LV /000B          ; 0272 300B - Carrega o valor 0x00B no acumulador (OPCODE = 0x00B)
 MM OP                  ; 0274 9010 - Armazena o valor carregado na variável global OPCODE
-#MNEM2OP               ; 0276 B200 - Retorna para o endereço contido em 0x0200
+# MNEM2OP               ; 0276 B200 - Retorna para o endereço contido em 0x0200
 M153 LV /000A          ; 0278 300A - Carrega o valor 0x00A no acumulador (OPCODE = 0x00A)
 MM OP                  ; 027A 9010 - Armazena o valor carregado na variável global OPCODE
-#MNEM2OP               ; 027C B200 - Retorna para o endereço contido em 0x0200
+# MNEM2OP               ; 027C B200 - Retorna para o endereço contido em 0x0200
 LD BYTE2               ; 027E 8026 - Carrega o valor de Byte2MNEM no acumulador
 - K050                 ; 0280 5038 - Subtrai 0x050 do valor do acumulador
 JN M24E                ; 0282 2288 - Desvio se negativo (MNEM = 4A4E)
@@ -178,30 +178,30 @@ JZ M250                ; 0284 128E - Desvio se zero (MNEM = 4A50)
 JP M25A                ; 0286 0294 - Desvio incondicional (MNEM = 4A5A)
 M24E LD K002           ; 0288 3002 - Carrega o valor 0x002 no acumulador (OPCODE = 0x002)
 MM OP                  ; 028A 9010 - Armazena o valor carregado na variável global OPCODE
-#MNEM2OP               ; 028C B200 - Retorna para o endereço contido em 0x0200
+# MNEM2OP               ; 028C B200 - Retorna para o endereço contido em 0x0200
 M250 LV /0000          ; 028E 3000 - Carrega o valor 0x000 no acumulador (OPCODE = 0x000)
 MM OP                  ; 0290 9010 - Armazena o valor carregado na variável global OPCODE
 #MNEM2OP               ; 0292 B200 - Retorna para o endereço contido em 0x0200
 M25A LV /0001          ; 0294 3001 - Carrega o valor 0x001 no acumulador (OPCODE = 0x001)
 MM OP                  ; 0296 9010 - Armazena o valor carregado na variável global OPCODE
-#MNEM2OP               ; 0298 B200 - Retorna para o endereço contido em 0x0200
+# MNEM2OP               ; 0298 B200 - Retorna para o endereço contido em 0x0200
 LD BYTE2               ; 029A 8026 - Carrega o valor de Byte2MNEM no acumulador
 - K056                 ; 029C 503A - Subtrai 0x056 do valor do acumulador
 JN M244                ; 029E 22A2 - Desvio se negativo (MNEM = 4C44)
 JZ M256                ; 02A0 12A8 - Desvio se zero (MNEM = 4C56)
 M244 LV /0008          ; 02A2 3008 - Carrega o valor 0x008 no acumulador (OPCODE = 0x008)
 MM OP                  ; 02A4 9010 - Armazena o valor carregado na variável global OPCODE
-#MNEM2OP               ; 02A6 B200 - Retorna para o endereço contido em 0x200
+# MNEM2OP               ; 02A6 B200 - Retorna para o endereço contido em 0x200
 M256 LV /0003          ; 02A8 3003 - Carrega o valor 0x003 (OPCODE = 0x003) no acumulador
 MM OP                  ; 02AA 9010 - Armazena o valor carregado na variável global OPCODE
-#MNEM2OP               ; 02AC B200 - Retorna para o endereço contido em 0x200
+# MNEM2OP               ; 02AC B200 - Retorna para o endereço contido em 0x200
 ; ================================================================================
 ; Programa principal
 ; ================================================================================
 @ /0300               ; 0300 0302 - Início do programa
 MAIN SC TESTESOP2MNEM ; 0302 A800 - Chama a sub-rotina de testes de OP2MNEM
 SC TESTESMNEM2OP      ; 0304 A900 - Chama a sub-rotina de testes de MNEM2OP
-#MAIN                 ; 0306 C306 - Fim do programa
+# MAIN                 ; 0306 C306 - Fim do programa
 ; ================================================================================
 ; Tabela de mnemônicos
 ; ================================================================================
@@ -232,7 +232,7 @@ MM BYTE2            ; 0608 9026 - Armazena o byte na variável Byte2MNEM
 LD MNEM             ; 060A 8012 - Carrega o valor de MNEM no acumulador
 / 100               ; 060C 7030 - Divide por 0x100
 MMM BYTE1           ; 060E 9024 - Armazena o byte na variável Byte1MNEM
-#SEPARABYTES        ; 0610 B600 - Retorna para o endereço contido em 0x600
+# SEPARABYTES        ; 0610 B600 - Retorna para o endereço contido em 0x600
 ; ================================================================================
 ; Implementação da sub-rotina de impressão dos valores de OP e MNEM na tela
 ; Resultado apresentado: OP: <OPCODE> MNEM: <MNEM> 
@@ -270,7 +270,7 @@ LV /0020          ; 073A 3020 - Carrega " " para o acumulador
 PD 100            ; 073C E100 - Imprime " "
 LD MNEM           ; 073E 8012 - Carrega o valor de MNEM para o acumulador
 PD 100            ; 0740 E100 - Imprime o valor de MNEM
-#IMPRIME          ; 0742 B700 - Retorna para o endereço em 0x700
+# IMPRIME          ; 0742 B700 - Retorna para o endereço em 0x700
 IMPRIMENUMS LD OP ; 0744 8010 - Carrega o valor de OPCODE para o acumulador
 + K03C            ; 0746 403C - Soma 0x030 ao valor de OPCODE
 PD 100            ; 0748 E100 - Imprime o valor de OPCODE
@@ -290,7 +290,7 @@ LV /0020          ; 0762 3020 - Carrega " " para o acumulador
 PD 100            ; 0764 E100 - Imprime " "
 LD MNEM           ; 0766 8012 - Carrega o valor de MNEM para o acumulador
 PD 100            ; 0768 E100 - Imprime o valor de MNEM
-#IMPRIME          ; 076A B700 - Retorna para o endereço em 0x700
+# IMPRIME          ; 076A B700 - Retorna para o endereço em 0x700
 ; ================================================================================
 ; Testes para a função OP2MNEM
 ; ================================================================================
@@ -359,7 +359,7 @@ LV /000F               ; 087A 300F - Carrega para o acumulador o valor desejado 
 MM OP                  ; 087C 9010 - Guarda o valor na variável global OPCODE
 SC OP2MNEM             ; 087E A100 - Chama a sub-rotina OP2MNEM
 SC IMPRIME             ; 0880 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-#TESTESOP2MNEM         ; 0882 B800 - Retorna para o endereço contido em 0x800
+# TESTESOP2MNEM         ; 0882 B800 - Retorna para o endereço contido em 0x800
 ; ================================================================================
 ; Testes para a função MNEM2OP
 ; ================================================================================
@@ -428,5 +428,5 @@ LD MOS               ; 097A 841E - Carrega para o acumulador o valor desejado pa
 MM MNEM              ; 097C 9012 - Guarda o valor na variável global MNEM
 SC MNEM2OP           ; 097E A200 - Chama a sub-rotina MNEM2OP
 SC IMPRIME           ; 0980 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-#TESTESMNEM2OP       ; 0982 B900 - Retorna para o endereço contido em 0x900
+# TESTESMNEM2OP       ; 0982 B900 - Retorna para o endereço contido em 0x900
 ; ================================================================================
