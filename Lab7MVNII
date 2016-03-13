@@ -372,7 +372,7 @@ LD MJZ               ; 090A 8402 - Carrega para o acumulador o valor desejado pa
 MM MNEM              ; 090C 9012 - Guarda o valor na variável global MNEM
 SC MNEM2OP           ; 090E A200 - Chama a sub-rotina MNEM2OP
 SC IMPRIME           ; 0910 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-LD JN                ; 0912 8404 - Carrega para o acumulador o valor desejado para MNEM
+LD MJN                ; 0912 8404 - Carrega para o acumulador o valor desejado para MNEM
 MM MNEM              ; 0914 9012 - Guarda o valor na variável global MNEM
 SC MNEM2OP           ; 0916 A200 - Chama a sub-rotina MNEM2OP
 SC IMPRIME           ; 0918 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
