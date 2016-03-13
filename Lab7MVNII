@@ -1,28 +1,28 @@
 ; ================================================================================
-@ 0000 
+@ /0000 
 JP MAIN ; 0000 0300 - Jump para o programa principal
 ; ================================================================================
 ; Variáveis e constantes
 ; ================================================================================
-OP    K 0000  ; 0010 0000 - Variável OPCODE (global) em hexadecimal
-MNEM  K 0000  ; 0012 0000 - Variável MNEM (global) em hexadecimal
-BYTE1 K 0000  ; 0024 0000 - Variável Byte1MNEM
-BYTE2 K 0000  ; 0026 0000 - Variável Byte2MNEM
-K001  K 0001  ; 0028 0001 - Constante = 0x001
-K100  K 0100  ; 0030 0100 - Constante = 0x100
-K02B  K 002B  ; 0032 002B - Constante = 0x02B
-K002  K 0002  ; 0034 0002 - Constante = 0x002
-K018  K 0018  ; 0036 0018 - Constante = 0x018
-K050  K 0050  ; 0038 0050 - Constante = 0x050
-K056  K 0056  ; 003A 0056 - Constante = 0x056
-K030  K 0030  ; 003C 0030 - Constante = 0x030
-K00A  K 000A  ; 003E 000A - Constante = 0x00A
-K037  K 0037  ; 0040 0037 - Constante = 0x037
-BRKL  K 0A0D  ; 0042 0A0D - Break line
+OP    K /0000  ; 0010 0000 - Variável OPCODE (global) em hexadecimal
+MNEM  K /0000  ; 0012 0000 - Variável MNEM (global) em hexadecimal
+BYTE1 K /0000  ; 0024 0000 - Variável Byte1MNEM
+BYTE2 K /0000  ; 0026 0000 - Variável Byte2MNEM
+K001  K /0001  ; 0028 0001 - Constante = 0x001
+K100  K /0100  ; 0030 0100 - Constante = 0x100
+K02B  K /002B  ; 0032 002B - Constante = 0x02B
+K002  K /0002  ; 0034 0002 - Constante = 0x002
+K018  K /0018  ; 0036 0018 - Constante = 0x018
+K050  K /0050  ; 0038 0050 - Constante = 0x050
+K056  K /0056  ; 003A 0056 - Constante = 0x056
+K030  K /0030  ; 003C 0030 - Constante = 0x030
+K00A  K /000A  ; 003E 000A - Constante = 0x00A
+K037  K /0037  ; 0040 0037 - Constante = 0x037
+BRKL  K /0A0D  ; 0042 0A0D - Break line
 ; ================================================================================
 ; Implementação da sub-rotina OP2MNEM
 ; ================================================================================
-@ 0100         ; 0100 0000 - Endereço de retorno da sub-rotina OP2MNEM
+@ /0100        ; 0100 0000 - Endereço de retorno da sub-rotina OP2MNEM
 OP2MNEM  LD OP ; 0102 8010 - Carrega o valor de OP no acumulador
         - K001 ; 0104 5028 - Subtrai 0x001 do valor do acumulador
         JN OP0 ; 0106 2146 - Desvio se o acumulador é negativo (OPCODE = 0x000)
@@ -108,7 +108,7 @@ MM MNEM        ; 01A2 9012 - Guarda o valor carregado em MNEM
 ; ================================================================================
 ; Implementação da sub-rotina MNEM2OP
 ; ================================================================================
-@ 0200                 ; 0200 0000 - Endereço de retorno da sub-rotina MNEM2OP
+@ /0200                ; 0200 0000 - Endereço de retorno da sub-rotina MNEM2OP
 MNEM2OP SC SEPARABYTES ; 0202 A600 - Chamando a sub-rotina de separação dos bytes de MNEM
         LD BYTE1       ; 0204 8024 - Carrega o valor de Byte1MNEM no acumulador
         - K02B         ; 0206 5032 - Subtrai 0x02B do valor carregado no acumulador
@@ -138,37 +138,37 @@ MNEM2OP SC SEPARABYTES ; 0202 A600 - Chamando a sub-rotina de separação dos by
         - K001         ; 0236 5028 - Subtrai 0x001 do valor carregado no acumulador
         JN M153        ; 0238 2278 - Desvio se acumulador é negativo (Byte1MNEM = 0x053)
 #MNEM2OP               ; 023A B200 - Retorna para o endereço contido em 0x0200
-M12A LV 0006           ; 023C 3006 - Carrega o valor 0x006 no acumulador (OPCODE = 0x006)
+M12A LV /0006          ; 023C 3006 - Carrega o valor 0x006 no acumulador (OPCODE = 0x006)
 MM OP                  ; 023E 9010 - Armazena o valor carregado na variável global OPCODE
 #MNEM2OP               ; 0240 B200 - Retorna para o endereço contido em 0x0200
-M12B LV 0004           ; 0242 3004 - Carrega o valor 0x004 no acumulador (OPCODE = 0x004)
+M12B LV /0004          ; 0242 3004 - Carrega o valor 0x004 no acumulador (OPCODE = 0x004)
 MM OP                  ; 0244 9010 - Armazena o valor carregado na variável global OPCODE
 #MNEM2OP               ; 0246 B200 - Retorna para o endereço contido em 0x0200
-M12D LV 0005           ; 0248 3005 - Carrega o valor 0x005 no acumulador (OPCODE = 0x005)
+M12D LV /0005          ; 0248 3005 - Carrega o valor 0x005 no acumulador (OPCODE = 0x005)
 MM OP                  ; 024A 9010 - Armazena o valor carregado na variável global OPCODE
 #MNEM2OP               ; 024C B200 - Retorna para o endereço contido em 0x0200
-M12F LV 0007           ; 024E 3007 - Carrega o valor 0x007 no acumulador (OPCODE = 0x007)
+M12F LV /0007          ; 024E 3007 - Carrega o valor 0x007 no acumulador (OPCODE = 0x007)
 MM OP                  ; 0250 9010 - Armazena o valor carregado na variável global OPCODE
 #MNEM2OP               ; 0252 B200 - Retorna para o endereço contido em 0x0200
-M147 LV 000D           ; 0254 300D - Carrega o valor 0x00D no acumulador (OPCODE = 0x00D)
+M147 LV /000D          ; 0254 300D - Carrega o valor 0x00D no acumulador (OPCODE = 0x00D)
 MM OP                  ; 0256 9010 - Armazena o valor carregado na variável global OPCODE
 #MNEM2OP               ; 0258 B200 - Retorna para o endereço contido em 0x0200
-M148 LV 000C           ; 025A 300C - Carrega o valor 0x00C no acumulador (OPCODE = 0x00C)
+M148 LV /000C          ; 025A 300C - Carrega o valor 0x00C no acumulador (OPCODE = 0x00C)
 MM OP                  ; 025C 9010 - Armazena o valor carregado na variável global OPCODE
 #MNEM2OP               ; 025E B200 - Retorna para o endereço contido em 0x0200
-M14D LV 0009           ; 0260 3009 - Carrega o valor 0x009 no acumulador (OPCODE = 0x009)
+M14D LV /0009          ; 0260 3009 - Carrega o valor 0x009 no acumulador (OPCODE = 0x009)
 MM OP                  ; 0262 9010 - Armazena o valor carregado na variável global OPCODE
 #MNEM2OP               ; 0264 B200 - Retorna para o endereço contido em 0x0200
-M14F LV 000F           ; 0266 300F - Carrega o valor 0x00F no acumulador (OPCODE = 0x00F)
+M14F LV /000F          ; 0266 300F - Carrega o valor 0x00F no acumulador (OPCODE = 0x00F)
 MM OP                  ; 0268 9010 - Armazena o valor carregado na variável global OPCODE
 #MNEM2OP               ; 026A B200 - Retorna para o endereço contido em 0x0200
-M150 LV 000E           ; 026C 300E - Carrega o valor 0x00E no acumulador (OPCODE = 0x00E)
+M150 LV /000E          ; 026C 300E - Carrega o valor 0x00E no acumulador (OPCODE = 0x00E)
 MM OP                  ; 026E 9010 - Armazena o valor carregado na variável global OPCODE
 #MNEM2OP               ; 0270 B200 - Retorna para o endereço contido em 0x0200
-M152 LV 000B           ; 0272 300B - Carrega o valor 0x00B no acumulador (OPCODE = 0x00B)
+M152 LV /000B          ; 0272 300B - Carrega o valor 0x00B no acumulador (OPCODE = 0x00B)
 MM OP                  ; 0274 9010 - Armazena o valor carregado na variável global OPCODE
 #MNEM2OP               ; 0276 B200 - Retorna para o endereço contido em 0x0200
-M153 LV 000A           ; 0278 300A - Carrega o valor 0x00A no acumulador (OPCODE = 0x00A)
+M153 LV /000A          ; 0278 300A - Carrega o valor 0x00A no acumulador (OPCODE = 0x00A)
 MM OP                  ; 027A 9010 - Armazena o valor carregado na variável global OPCODE
 #MNEM2OP               ; 027C B200 - Retorna para o endereço contido em 0x0200
 LD BYTE2               ; 027E 8026 - Carrega o valor de Byte2MNEM no acumulador
@@ -179,29 +179,29 @@ JP M25A                ; 0286 0294 - Desvio incondicional (MNEM = 4A5A)
 M24E LD K002           ; 0288 3002 - Carrega o valor 0x002 no acumulador (OPCODE = 0x002)
 MM OP                  ; 028A 9010 - Armazena o valor carregado na variável global OPCODE
 #MNEM2OP               ; 028C B200 - Retorna para o endereço contido em 0x0200
-M250 LV 0000           ; 028E 3000 - Carrega o valor 0x000 no acumulador (OPCODE = 0x000)
+M250 LV /0000          ; 028E 3000 - Carrega o valor 0x000 no acumulador (OPCODE = 0x000)
 MM OP                  ; 0290 9010 - Armazena o valor carregado na variável global OPCODE
 #MNEM2OP               ; 0292 B200 - Retorna para o endereço contido em 0x0200
-M25A LV 0001           ; 0294 3001 - Carrega o valor 0x001 no acumulador (OPCODE = 0x001)
+M25A LV /0001          ; 0294 3001 - Carrega o valor 0x001 no acumulador (OPCODE = 0x001)
 MM OP                  ; 0296 9010 - Armazena o valor carregado na variável global OPCODE
 #MNEM2OP               ; 0298 B200 - Retorna para o endereço contido em 0x0200
 LD BYTE2               ; 029A 8026 - Carrega o valor de Byte2MNEM no acumulador
 - K056                 ; 029C 503A - Subtrai 0x056 do valor do acumulador
 JN M244                ; 029E 22A2 - Desvio se negativo (MNEM = 4C44)
 JZ M256                ; 02A0 12A8 - Desvio se zero (MNEM = 4C56)
-M244 LV 0008           ; 02A2 3008 - Carrega o valor 0x008 no acumulador (OPCODE = 0x008)
+M244 LV /0008          ; 02A2 3008 - Carrega o valor 0x008 no acumulador (OPCODE = 0x008)
 MM OP                  ; 02A4 9010 - Armazena o valor carregado na variável global OPCODE
 #MNEM2OP               ; 02A6 B200 - Retorna para o endereço contido em 0x200
-M256 LV 0003           ; 02A8 3003 - Carrega o valor 0x003 (OPCODE = 0x003) no acumulador
+M256 LV /0003          ; 02A8 3003 - Carrega o valor 0x003 (OPCODE = 0x003) no acumulador
 MM OP                  ; 02AA 9010 - Armazena o valor carregado na variável global OPCODE
 #MNEM2OP               ; 02AC B200 - Retorna para o endereço contido em 0x200
 ; ================================================================================
 ; Programa principal
 ; ================================================================================
-MAIN 0300 0302   ; Início do programa
-SC TESTESOP2MNEM ; 0302 A800 - Chama a sub-rotina de testes de OP2MNEM
-SC TESTESMNEM2OP ; 0304 A900 - Chama a sub-rotina de testes de MNEM2OP
-#MAIN 0306 C306  ; Fim do programa
+@ /0300               ; 0300 0302 - Início do programa
+MAIN SC TESTESOP2MNEM ; 0302 A800 - Chama a sub-rotina de testes de OP2MNEM
+SC TESTESMNEM2OP      ; 0304 A900 - Chama a sub-rotina de testes de MNEM2OP
+#MAIN                 ; 0306 C306 - Fim do programa
 ; ================================================================================
 ; Tabela de mnemônicos
 ; ================================================================================
@@ -224,7 +224,7 @@ MOS 4F53 ; 041E 4F53 - Valor em hexadecimal de MNEM = OS
 ; ===============================================================================
 ; Implementação da sub-rotina de separação de bytes de MNEM
 ; ================================================================================
-@ 0600              ; 0600 0000 - Endereço de retorno
+@ /0600             ; 0600 0000 - Endereço de retorno
 SEPARABYTES LD MNEM ; 0602 8012 ; Carrega o valor de MNEM
 * K100              ; 0604 6030 - Multiplica o valor por 0x100
 / K100              ; 0606 7030 - Divide o valor por 0x100
@@ -237,36 +237,36 @@ MMM BYTE1           ; 060E 9024 - Armazena o byte na variável Byte1MNEM
 ; Implementação da sub-rotina de impressão dos valores de OP e MNEM na tela
 ; Resultado apresentado: OP: <OPCODE> MNEM: <MNEM> 
 ; ================================================================================
-@ 0700            ; 0700 0000 - Endereço de retorno
+@ /0700           ; 0700 0000 - Endereço de retorno
 IMPRIME LD BRKL   ; 0702 8042 - Carrega a quebra de linha para o acumulador
-PD 100            ; 0704 E100 - Imprime a quebra de linha
-LV 04F            ; 0706 304F - Carrega "O" para o acumulador
-PD 100            ; 0708 E100 - Imprime "O"
-LV 050            ; 070A 3050 - Carrega "P" para o acumulador
-PD 100            ; 070C E100 - Imprime "P"
-LV 03A            ; 070E 303A - Carrega ":" para o acumulador
-PD 100            ; 0710 E100 - Imprime ":"
-LV 020            ; 0712 3020 - Carrega " " para o acumulador
-PD 100            ; 0714 E100 - Imprime " "
+PD /0100          ; 0704 E100 - Imprime a quebra de linha
+LV /004F          ; 0706 304F - Carrega "O" para o acumulador
+PD /0100          ; 0708 E100 - Imprime "O"
+LV /0050          ; 070A 3050 - Carrega "P" para o acumulador
+PD /0100          ; 070C E100 - Imprime "P"
+LV /003A          ; 070E 303A - Carrega ":" para o acumulador
+PD /0100          ; 0710 E100 - Imprime ":"
+LV /0020          ; 0712 3020 - Carrega " " para o acumulador
+PD /0100          ; 0714 E100 - Imprime " "
 LD OP             ; 0716 8010 - Carrega o valor de OPCODE para o acumulador
 - K00A            ; 0718 503E - Subtrai 0x00A do valor do acumulador
 JN IMPRIMENUMS    ; 071A 2744 - Desvio se acumulador é negativo
 LD OP             ; 071C 8010 - Carrega o valor de OPCODE para o acumulador
 + K037            ; 071E 4040 - Soma 0x037 ao valor de OPCODE
 PD 100            ; 0720 E100 - Imprime o valor de OPCODE
-LV 020            ; 0722 3020 - Carrega " " para o acumulador
+LV /0020          ; 0722 3020 - Carrega " " para o acumulador
 PD 100            ; 0724 E100 - Imprime " "
-LV 04D            ; 0726 304D - Carrega "M" para o acumulador
+LV /004D          ; 0726 304D - Carrega "M" para o acumulador
 PD 100            ; 0728 E100 - Imprime "M"
-LV 04E            ; 072A 304E - Carrega "N" para o acumulador
+LV /004E          ; 072A 304E - Carrega "N" para o acumulador
 PD 100            ; 072C E100 - Imprime "N"
-LV 045            ; 072E 3045 - Carrega "E" para o acumulador
+LV /0045          ; 072E 3045 - Carrega "E" para o acumulador
 PD 100            ; 0730 E100 - Imprime "E"
-LV 04D            ; 0732 304D - Carrega "M" para o acumulador
+LV /004D          ; 0732 304D - Carrega "M" para o acumulador
 PD 100            ; 0734 E100 - Imprime "M"
-LV 03A            ; 0736 303A - Carrega ":" para o acumulador
+LV /003A          ; 0736 303A - Carrega ":" para o acumulador
 PD 100            ; 0738 E100 - Imprime ":"
-LV 020            ; 073A 3020 - Carrega " " para o acumulador
+LV /0020          ; 073A 3020 - Carrega " " para o acumulador
 PD 100            ; 073C E100 - Imprime " "
 LD MNEM           ; 073E 8012 - Carrega o valor de MNEM para o acumulador
 PD 100            ; 0740 E100 - Imprime o valor de MNEM
@@ -274,19 +274,19 @@ PD 100            ; 0740 E100 - Imprime o valor de MNEM
 IMPRIMENUMS LD OP ; 0744 8010 - Carrega o valor de OPCODE para o acumulador
 + K03C            ; 0746 403C - Soma 0x030 ao valor de OPCODE
 PD 100            ; 0748 E100 - Imprime o valor de OPCODE
-LV 020            ; 074A 3020 - Carrega " " para o acumulador
+LV /0020          ; 074A 3020 - Carrega " " para o acumulador
 PD 100            ; 074C E100 - Imprime " "
-LV 04D            ; 074E 304D - Carrega "M" para o acumulador
+LV /004D          ; 074E 304D - Carrega "M" para o acumulador
 PD 100            ; 0750 E100 - Imprime "M"
-LV 04E            ; 0752 304E - Carrega "N" para o acumulador
+LV /004E          ; 0752 304E - Carrega "N" para o acumulador
 PD 100            ; 0754 E100 - Imprime "N"
-LV 045            ; 0756 3045 - Carrega "E" para o acumulador
+LV /0045          ; 0756 3045 - Carrega "E" para o acumulador
 PD 100            ; 0758 E100 - Imprime "E"
-LV 04D            ; 075A 304D - Carrega "M" para o acumulador
+LV /004D          ; 075A 304D - Carrega "M" para o acumulador
 PD 100            ; 075C E100 - Imprime "M"
-LV 03A            ; 075E 303A - Carrega ":" para o acumulador
+LV /003A          ; 075E 303A - Carrega ":" para o acumulador
 PD 100            ; 0760 E100 - Imprime ":"
-LV 020            ; 0762 3020 - Carrega " " para o acumulador
+LV /0020          ; 0762 3020 - Carrega " " para o acumulador
 PD 100            ; 0764 E100 - Imprime " "
 LD MNEM           ; 0766 8012 - Carrega o valor de MNEM para o acumulador
 PD 100            ; 0768 E100 - Imprime o valor de MNEM
@@ -294,139 +294,139 @@ PD 100            ; 0768 E100 - Imprime o valor de MNEM
 ; ================================================================================
 ; Testes para a função OP2MNEM
 ; ================================================================================
-0800 0000 ; Endereço de retorno
-0802 3000 ; Carrega para o acumulador o valor desejado para OP
-0804 9010 ; Guarda o valor na variável global OPCODE
-0806 A100 ; Chama a sub-rotina OP2MNEM
-0808 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-080A 3001 ; Carrega para o acumulador o valor desejado para OP
-080C 9010 ; Guarda o valor na variável global OPCODE
-080E A100 ; Chama a sub-rotina OP2MNEM
-0810 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-0812 3002 ; Carrega para o acumulador o valor desejado para OP
-0814 9010 ; Guarda o valor na variável global OPCODE
-0816 A100 ; Chama a sub-rotina OP2MNEM
-0818 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-081A 3003 ; Carrega para o acumulador o valor desejado para OP
-081C 9010 ; Guarda o valor na variável global OPCODE
-081E A100 ; Chama a sub-rotina OP2MNEM
-0820 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-0822 3004 ; Carrega para o acumulador o valor desejado para OP
-0824 9010 ; Guarda o valor na variável global OPCODE
-0826 A100 ; Chama a sub-rotina OP2MNEM
-0828 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-082A 3005 ; Carrega para o acumulador o valor desejado para OP
-082C 9010 ; Guarda o valor na variável global OPCODE
-082E A100 ; Chama a sub-rotina OP2MNEM
-0830 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-0832 3006 ; Carrega para o acumulador o valor desejado para OP
-0834 9010 ; Guarda o valor na variável global OPCODE
-0836 A100 ; Chama a sub-rotina OP2MNEM
-0838 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-083A 3007 ; Carrega para o acumulador o valor desejado para OP
-083C 9010 ; Guarda o valor na variável global OPCODE
-083E A100 ; Chama a sub-rotina OP2MNEM
-0840 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-0842 3008 ; Carrega para o acumulador o valor desejado para OP
-0844 9010 ; Guarda o valor na variável global OPCODE
-0846 A100 ; Chama a sub-rotina OP2MNEM
-0848 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-084A 3009 ; Carrega para o acumulador o valor desejado para OP
-084C 9010 ; Guarda o valor na variável global OPCODE
-084E A100 ; Chama a sub-rotina OP2MNEM
-0850 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-0852 300A ; Carrega para o acumulador o valor desejado para OP
-0854 9010 ; Guarda o valor na variável global OPCODE
-0856 A100 ; Chama a sub-rotina OP2MNEM
-0858 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-085A 300B ; Carrega para o acumulador o valor desejado para OP
-085C 9010 ; Guarda o valor na variável global OPCODE
-085E A100 ; Chama a sub-rotina OP2MNEM
-0860 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-0862 300C ; Carrega para o acumulador o valor desejado para OP
-0864 9010 ; Guarda o valor na variável global OPCODE
-0866 A100 ; Chama a sub-rotina OP2MNEM
-0868 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-086A 300D ; Carrega para o acumulador o valor desejado para OP
-086C 9010 ; Guarda o valor na variável global OPCODE
-086E A100 ; Chama a sub-rotina OP2MNEM
-0870 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-0872 300E ; Carrega para o acumulador o valor desejado para OP
-0874 9010 ; Guarda o valor na variável global OPCODE
-0876 A100 ; Chama a sub-rotina OP2MNEM
-0878 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-087A 300F ; Carrega para o acumulador o valor desejado para OP
-087C 9010 ; Guarda o valor na variável global OPCODE
-087E A100 ; Chama a sub-rotina OP2MNEM
-0880 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-0882 B800 ; Retorna para o endereço contido em 0x800
+@ /0800                ; 0800 0000 - Endereço de retorno
+TESTESOP2MNEM LV /0000 ; 0802 3000 - Carrega para o acumulador o valor desejado para OP
+MM OP                  ; 0804 9010 - Guarda o valor na variável global OPCODE
+SC OP2MNEM             ; 0806 A100 - Chama a sub-rotina OP2MNEM
+SC IMPRIME             ; 0808 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LV /0001               ; 080A 3001 - Carrega para o acumulador o valor desejado para OP
+MM OP                  ; 080C 9010 - Guarda o valor na variável global OPCODE
+SC OP2MNEM             ; 080E A100 - Chama a sub-rotina OP2MNEM
+SC IMPRIME             ; 0810 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LV /0002               ; 0812 3002 - Carrega para o acumulador o valor desejado para OP
+MM OP                  ; 0814 9010 - Guarda o valor na variável global OPCODE
+SC OP2MNEM             ; 0816 A100 - Chama a sub-rotina OP2MNEM
+SC IMPRIME             ; 0818 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LV /003                ; 081A 3003 - Carrega para o acumulador o valor desejado para OP
+MM OP                  ; 081C 9010 - Guarda o valor na variável global OPCODE
+SC OP2MNEM             ; 081E A100 - Chama a sub-rotina OP2MNEM
+SC IMPRIME             ; 0820 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LV /0004               ; 0822 3004 - Carrega para o acumulador o valor desejado para OP
+MM OP                  ; 0824 9010 - Guarda o valor na variável global OPCODE
+SC OP2MNEM             ; 0826 A100 - Chama a sub-rotina OP2MNEM
+SC IMPRIME             ; 0828 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LV /005                ; 082A 3005 - Carrega para o acumulador o valor desejado para OP
+MM OP                  ; 082C 9010 - Guarda o valor na variável global OPCODE
+SC OP2MNEM             ; 082E A100 - Chama a sub-rotina OP2MNEM
+SC IMPRIME             ; 0830 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LV /0006               ; 0832 3006 - Carrega para o acumulador o valor desejado para OP
+MM OP                  ; 0834 9010 - Guarda o valor na variável global OPCODE
+SC OP2MNEM             ; 0836 A100 - Chama a sub-rotina OP2MNEM
+SC IMPRIME             ; 0838 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LV /0007               ; 083A 3007 - Carrega para o acumulador o valor desejado para OP
+MM OP                  ; 083C 9010 - Guarda o valor na variável global OPCODE
+SC OP2MNEM             ; 083E A100 - Chama a sub-rotina OP2MNEM
+SC IMPRIME             ; 0840 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LV /0008               ; 0842 3008 - Carrega para o acumulador o valor desejado para OP
+MM OP                  ; 0844 9010 - Guarda o valor na variável global OPCODE
+SC OP2MNEM             ; 0846 A100 - Chama a sub-rotina OP2MNEM
+SC IMPRIME             ; 0848 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LV /0009               ; 084A 3009 - Carrega para o acumulador o valor desejado para OP
+MM OP                  ; 084C 9010 - Guarda o valor na variável global OPCODE
+SC OP2MNEM             ; 084E A100 - Chama a sub-rotina OP2MNEM
+SC IMPRIME             ; 0850 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LV /000A               ; 0852 300A - Carrega para o acumulador o valor desejado para OP
+MM OP                  ; 0854 9010 - Guarda o valor na variável global OPCODE
+SC OP2MNEM             ; 0856 A100 - Chama a sub-rotina OP2MNEM
+SC IMPRIME             ; 0858 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LV /000B               ; 085A 300B - Carrega para o acumulador o valor desejado para OP
+MM OP                  ; 085C 9010 - Guarda o valor na variável global OPCODE
+SC OP2MNEM             ; 085E A100 - Chama a sub-rotina OP2MNEM
+SC IMPRIME             ; 0860 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LV /000C               ; 0862 300C - Carrega para o acumulador o valor desejado para OP
+MM OP                  ; 0864 9010 - Guarda o valor na variável global OPCODE
+SC OP2MNEM             ; 0866 A100 - Chama a sub-rotina OP2MNEM
+SC IMPRIME             ; 0868 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LV /000D               ; 086A 300D - Carrega para o acumulador o valor desejado para OP
+MM OP                  ; 086C 9010 - Guarda o valor na variável global OPCODE
+SC OP2MNEM             ; 086E A100 - Chama a sub-rotina OP2MNEM
+SC IMPRIME             ; 0870 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LV /000E               ; 0872 300E - Carrega para o acumulador o valor desejado para OP
+MM OP                  ; 0874 9010 - Guarda o valor na variável global OPCODE
+SC OP2MNEM             ; 0876 A100 - Chama a sub-rotina OP2MNEM
+SC IMPRIME             ; 0878 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LV /000F               ; 087A 300F - Carrega para o acumulador o valor desejado para OP
+MM OP                  ; 087C 9010 - Guarda o valor na variável global OPCODE
+SC OP2MNEM             ; 087E A100 - Chama a sub-rotina OP2MNEM
+SC IMPRIME             ; 0880 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+#TESTESOP2MNEM         ; 0882 B800 - Retorna para o endereço contido em 0x800
 ; ================================================================================
 ; Testes para a função MNEM2OP
 ; ================================================================================
-0900 0000 ; Endereço de retorno
-0902 8400 ; Carrega para o acumulador o valor desejado para MNEM
-0904 9012 ; Guarda o valor na variável global MNEM
-0906 A200 ; Chama a sub-rotina MNEM2OP
-0908 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-090A 8402 ; Carrega para o acumulador o valor desejado para MNEM
-090C 9012 ; Guarda o valor na variável global MNEM
-090E A200 ; Chama a sub-rotina MNEM2OP
-0910 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-0912 8404 ; Carrega para o acumulador o valor desejado para MNEM
-0914 9012 ; Guarda o valor na variável global MNEM
-0916 A200 ; Chama a sub-rotina MNEM2OP
-0918 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-091A 8406 ; Carrega para o acumulador o valor desejado para MNEM
-091C 9012 ; Guarda o valor na variável global MNEM
-091E A200 ; Chama a sub-rotina MNEM2OP
-0920 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-0922 8408 ; Carrega para o acumulador o valor desejado para MNEM
-0924 9012 ; Guarda o valor na variável global MNEM
-0926 A200 ; Chama a sub-rotina MNEM2OP
-0928 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-092A 840A ; Carrega para o acumulador o valor desejado para MNEM
-092C 9012 ; Guarda o valor na variável global MNEM
-092E A200 ; Chama a sub-rotina MNEM2OP
-0930 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-0932 840C ; Carrega para o acumulador o valor desejado para MNEM
-0934 9012 ; Guarda o valor na variável global MNEM
-0936 A200 ; Chama a sub-rotina MNEM2OP
-0938 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-093A 840E ; Carrega para o acumulador o valor desejado para MNEM
-093C 9012 ; Guarda o valor na variável global MNEM
-093E A200 ; Chama a sub-rotina MNEM2OP
-0940 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-0942 8410 ; Carrega para o acumulador o valor desejado para MNEM
-0944 9012 ; Guarda o valor na variável global MNEM
-0946 A200 ; Chama a sub-rotina MNEM2OP
-0948 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-094A 8412 ; Carrega para o acumulador o valor desejado para MNEM
-094C 9012 ; Guarda o valor na variável global MNEM
-094E A200 ; Chama a sub-rotina MNEM2OP
-0950 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-0952 8414 ; Carrega para o acumulador o valor desejado para MNEM
-0954 9012 ; Guarda o valor na variável global MNEM
-0956 A200 ; Chama a sub-rotina MNEM2OP
-0958 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-095A 8416 ; Carrega para o acumulador o valor desejado para MNEM
-095C 9012 ; Guarda o valor na variável global MNEM
-095E A200 ; Chama a sub-rotina MNEM2OP
-0960 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-0962 8418 ; Carrega para o acumulador o valor desejado para MNEM
-0964 9012 ; Guarda o valor na variável global MNEM
-0966 A200 ; Chama a sub-rotina MNEM2OP
-0968 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-096A 841A ; Carrega para o acumulador o valor desejado para MNEM
-096C 9012 ; Guarda o valor na variável global MNEM
-096E A200 ; Chama a sub-rotina MNEM2OP
-0970 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-0972 841C ; Carrega para o acumulador o valor desejado para MNEM
-0974 9012 ; Guarda o valor na variável global MNEM
-0976 A200 ; Chama a sub-rotina MNEM2OP
-0978 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-097A 841E ; Carrega para o acumulador o valor desejado para MNEM
-097C 9012 ; Guarda o valor na variável global MNEM
-097E A200 ; Chama a sub-rotina MNEM2OP
-0980 A700 ; Chama a sub-rotina que imprime os valores de OP e MNEM atuais
-0982 B900 ; Retorna para o endereço contido em 0x900
+@ /0900              ; 0900 0000 - Endereço de retorno
+TESTESMNEM2OP LD MJP ; 0902 8400 - Carrega para o acumulador o valor desejado para MNEM
+MM MNEM              ; 0904 9012 - Guarda o valor na variável global MNEM
+SC MNEM2OP           ; 0906 A200 - Chama a sub-rotina MNEM2OP
+SC IMPRIME           ; 0908 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LD MJZ               ; 090A 8402 - Carrega para o acumulador o valor desejado para MNEM
+MM MNEM              ; 090C 9012 - Guarda o valor na variável global MNEM
+SC MNEM2OP           ; 090E A200 - Chama a sub-rotina MNEM2OP
+SC IMPRIME           ; 0910 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LD JN                ; 0912 8404 - Carrega para o acumulador o valor desejado para MNEM
+MM MNEM              ; 0914 9012 - Guarda o valor na variável global MNEM
+SC MNEM2OP           ; 0916 A200 - Chama a sub-rotina MNEM2OP
+SC IMPRIME           ; 0918 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LD MLV               ; 091A 8406 - Carrega para o acumulador o valor desejado para MNEM
+MM MNEM              ; 091C 9012 - Guarda o valor na variável global MNEM
+SC MNEM2OP           ; 091E A200 - Chama a sub-rotina MNEM2OP
+SC IMPRIME           ; 0920 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LD M+_               ; 0922 8408 - Carrega para o acumulador o valor desejado para MNEM
+MM MNEM              ; 0924 9012 - Guarda o valor na variável global MNEM
+SC MNEM2OP           ; 0926 A200 - Chama a sub-rotina MNEM2OP
+SC IMPRIME           ; 0928 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LD M-_               ; 092A 840A - Carrega para o acumulador o valor desejado para MNEM
+MM MNEM              ; 092C 9012 - Guarda o valor na variável global MNEM
+SC MNEM2OP           ; 092E A200 - Chama a sub-rotina MNEM2OP
+SC IMPRIME           ; 0930 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LD M*_               ; 0932 840C - Carrega para o acumulador o valor desejado para MNEM
+MM MNEM              ; 0934 9012 - Guarda o valor na variável global MNEM
+SC MNEM2OP           ; 0936 A200 - Chama a sub-rotina MNEM2OP
+SC IMPRIME           ; 0938 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LD M/_               ; 093A 840E - Carrega para o acumulador o valor desejado para MNEM
+MM MNEM              ; 093C 9012 - Guarda o valor na variável global MNEM
+SC MNEM2OP           ; 093E A200 - Chama a sub-rotina MNEM2OP
+SC IMPRIME           ; 0940 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LD MLD               ; 0942 8410 - Carrega para o acumulador o valor desejado para MNEM
+MM MNEM              ; 0944 9012 - Guarda o valor na variável global MNEM
+SC MNEM2OP           ; 0946 A200 - Chama a sub-rotina MNEM2OP
+SC IMPRIME           ; 0948 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LD MMM               ; 094A 8412 - Carrega para o acumulador o valor desejado para MNEM
+MM MNEM              ; 094C 9012 - Guarda o valor na variável global MNEM
+SC MNEM2OP           ; 094E A200 - Chama a sub-rotina MNEM2OP
+SC IMPRIME           ; 0950 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LD MSC               ; 0952 8414 - Carrega para o acumulador o valor desejado para MNEM
+MM MNEM              ; 0954 9012 - Guarda o valor na variável global MNEM
+SC MNEM2OP           ; 0956 A200 - Chama a sub-rotina MNEM2OP
+SC IMPRIME           ; 0958 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LD MRS               ; 095A 8416 - Carrega para o acumulador o valor desejado para MNEM
+MM MNEM              ; 095C 9012 - Guarda o valor na variável global MNEM
+SC MNEM2OP           ; 095E A200 - Chama a sub-rotina MNEM2OP
+SC IMPRIME           ; 0960 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LD MHM               ; 0962 8418 - Carrega para o acumulador o valor desejado para MNEM
+MM MNEM              ; 0964 9012 - Guarda o valor na variável global MNEM
+SC MNEM2OP           ; 0966 A200 - Chama a sub-rotina MNEM2OP
+SC IMPRIME           ; 0968 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LD MGD               ; 096A 841A - Carrega para o acumulador o valor desejado para MNEM
+MM MNEM              ; 096C 9012 - Guarda o valor na variável global MNEM
+SC MNEM2OP           ; 096E A200 - Chama a sub-rotina MNEM2OP
+SC IMPRIME           ; 0970 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LD MPD               ; 0972 841C - Carrega para o acumulador o valor desejado para MNEM
+MM MNEM              ; 0974 9012 - Guarda o valor na variável global MNEM
+SC MNEM2OP           ; 0976 A200 - Chama a sub-rotina MNEM2OP
+SC IMPRIME           ; 0978 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+LD MOS               ; 097A 841E - Carrega para o acumulador o valor desejado para MNEM
+MM MNEM              ; 097C 9012 - Guarda o valor na variável global MNEM
+SC MNEM2OP           ; 097E A200 - Chama a sub-rotina MNEM2OP
+SC IMPRIME           ; 0980 A700 - Chama a sub-rotina que imprime os valores de OP e MNEM atuais
+#TESTESMNEM2OP       ; 0982 B900 - Retorna para o endereço contido em 0x900
 ; ================================================================================
