@@ -198,99 +198,99 @@ MM OP                  ; 02AA 9010 - Armazena o valor carregado na variável glo
 ; ================================================================================
 ; Programa principal
 ; ================================================================================
-MAIN 0300 0302 ; Início do programa
-0302 A800 ; Chama a sub-rotina de testes de OP2MNEM
-0304 A900 ; Chama a sub-rotina de testes de MNEM2OP
-#MAIN 0306 C306 ; Fim do programa
+MAIN 0300 0302   ; Início do programa
+SC TESTESOP2MNEM ; 0302 A800 - Chama a sub-rotina de testes de OP2MNEM
+SC TESTESMNEM2OP ; 0304 A900 - Chama a sub-rotina de testes de MNEM2OP
+#MAIN 0306 C306  ; Fim do programa
 ; ================================================================================
 ; Tabela de mnemônicos
 ; ================================================================================
-0400 4A50 ; Valor em hexadecimal de MNEM = JP
-0402 4A5A ; Valor em hexadecimal de MNEM = JZ
-0404 4A4E ; Valor em hexadecimal de MNEM = JN
-0406 4C56 ; Valor em hexadecimal de MNEM = LV
-0408 2B5F ; Valor em hexadecimal de MNEM = +_
-040A 2D5F ; Valor em hexadecimal de MNEM = -_
-040C 2A5F ; Valor em hexadecimal de MNEM = *_
-040E 2F5F ; Valor em hexadecimal de MNEM = /_
-0410 4C44 ; Valor em hexadecimal de MNEM = LD
-0412 4D4D ; Valor em hexadecimal de MNEM = MM
-0414 5343 ; Valor em hexadecimal de MNEM = SC
-0416 5253 ; Valor em hexadecimal de MNEM = RS
-0418 484D ; Valor em hexadecimal de MNEM = HM
-041A 4744 ; Valor em hexadecimal de MNEM = GD
-041C 5044 ; Valor em hexadecimal de MNEM = PD
-041E 4F53 ; Valor em hexadecimal de MNEM = OS
-; ================================================================================
+MJP 4A50 ; 0400 4A50 - Valor em hexadecimal de MNEM = JP
+MJZ 4A5A ; 0402 4A5A - Valor em hexadecimal de MNEM = JZ
+MJN 4A4E ; 0404 4A4E - Valor em hexadecimal de MNEM = JN
+MLV 4C56 ; 0406 4C56 - Valor em hexadecimal de MNEM = LV
+M+_ 2B5F ; 0408 2B5F - Valor em hexadecimal de MNEM = +_
+M-_ 2D5F ; 040A 2D5F - Valor em hexadecimal de MNEM = -_
+M*_ 2A5F ; 040C 2A5F - Valor em hexadecimal de MNEM = *_
+M/_ 2F5F ; 040E 2F5F - Valor em hexadecimal de MNEM = /_
+MLD 4C44 ; 0410 4C44 - Valor em hexadecimal de MNEM = LD
+MMM 4D4D ; 0412 4D4D - Valor em hexadecimal de MNEM = MM
+MSC 5343 ; 0414 5343 - Valor em hexadecimal de MNEM = SC
+MRS 5253 ; 0416 5253 - Valor em hexadecimal de MNEM = RS
+MHM 484D ; 0418 484D - Valor em hexadecimal de MNEM = HM
+MGD 4744 ; 041A 4744 - Valor em hexadecimal de MNEM = GD
+MPD 5044 ; 041C 5044 - Valor em hexadecimal de MNEM = PD
+MOS 4F53 ; 041E 4F53 - Valor em hexadecimal de MNEM = OS
+; ===============================================================================
 ; Implementação da sub-rotina de separação de bytes de MNEM
 ; ================================================================================
-0600 0000 ; Endereço de retorno
-0602 8012 ; Carrega o valor de MNEM
-0604 6030 ; Multiplica o valor por 0x100
-0606 7030 ; Divide o valor por 0x100
-0608 9026 ; Armazena o byte na variável Byte2MNEM
-060A 8012 ; Carrega o valor de MNEM no acumulador
-060C 7030 ; Divide por 0x100
-060E 9024 ; Armazena o byte na variável Byte1MNEM
-0610 B600 ; Retorna para o endereço contido em 0x600
+@ 0600              ; 0600 0000 - Endereço de retorno
+SEPARABYTES LD MNEM ; 0602 8012 ; Carrega o valor de MNEM
+* K100              ; 0604 6030 - Multiplica o valor por 0x100
+/ K100              ; 0606 7030 - Divide o valor por 0x100
+MM BYTE2            ; 0608 9026 - Armazena o byte na variável Byte2MNEM
+LD MNEM             ; 060A 8012 - Carrega o valor de MNEM no acumulador
+/ 100               ; 060C 7030 - Divide por 0x100
+MMM BYTE1           ; 060E 9024 - Armazena o byte na variável Byte1MNEM
+#SEPARABYTES        ; 0610 B600 - Retorna para o endereço contido em 0x600
 ; ================================================================================
 ; Implementação da sub-rotina de impressão dos valores de OP e MNEM na tela
 ; Resultado apresentado: OP: <OPCODE> MNEM: <MNEM> 
 ; ================================================================================
-0700 0000 ; Endereço de retorno
-0702 8042 ; Carrega a quebra de linha para o acumulador
-0704 E100 ; Imprime a quebra de linha
-0706 304F ; Carrega "O" para o acumulador
-0708 E100 ; Imprime "O"
-070A 3050 ; Carrega "P" para o acumulador
-070C E100 ; Imprime "P"
-070E 303A ; Carrega ":" para o acumulador
-0710 E100 ; Imprime ":"
-0712 3020 ; Carrega " " para o acumulador
-0714 E100 ; Imprime " "
-0716 8010 ; Carrega o valor de OPCODE para o acumulador
-0718 503E ; Subtrai 0x00A do valor do acumulador
-071A 2744 ; Desvio se acumulador é negativo
-071C 8010 ; Carrega o valor de OPCODE para o acumulador
-071E 4040 ; Soma 0x037 ao valor de OPCODE
-0720 E100 ; Imprime o valor de OPCODE
-0722 3020 ; Carrega " " para o acumulador
-0724 E100 ; Imprime " "
-0726 304D ; Carrega "M" para o acumulador
-0728 E100 ; Imprime "M"
-072A 304E ; Carrega "N" para o acumulador
-072C E100 ; Imprime "N"
-072E 3045 ; Carrega "E" para o acumulador
-0730 E100 ; Imprime "E"
-0732 304D ; Carrega "M" para o acumulador
-0734 E100 ; Imprime "M"
-0736 303A ; Carrega ":" para o acumulador
-0738 E100 ; Imprime ":"
-073A 3020 ; Carrega " " para o acumulador
-073C E100 ; Imprime " "
-073E 8012 ; Carrega o valor de MNEM para o acumulador
-0740 E100 ; Imprime o valor de MNEM
-0742 B700 ; Retorna para o endereço em 0x700
-0744 8010 ; Carrega o valor de OPCODE para o acumulador
-0746 403C ; Soma 0x030 ao valor de OPCODE
-0748 E100 ; Imprime o valor de OPCODE
-074A 3020 ; Carrega " " para o acumulador
-074C E100 ; Imprime " "
-074E 304D ; Carrega "M" para o acumulador
-0750 E100 ; Imprime "M"
-0752 304E ; Carrega "N" para o acumulador
-0754 E100 ; Imprime "N"
-0756 3045 ; Carrega "E" para o acumulador
-0758 E100 ; Imprime "E"
-075A 304D ; Carrega "M" para o acumulador
-075C E100 ; Imprime "M"
-075E 303A ; Carrega ":" para o acumulador
-0760 E100 ; Imprime ":"
-0762 3020 ; Carrega " " para o acumulador
-0764 E100 ; Imprime " "
-0766 8012 ; Carrega o valor de MNEM para o acumulador
-0768 E100 ; Imprime o valor de MNEM
-076A B700 ; Retorna para o endereço em 0x700
+@ 0700            ; 0700 0000 - Endereço de retorno
+IMPRIME LD BRKL   ; 0702 8042 - Carrega a quebra de linha para o acumulador
+PD 100            ; 0704 E100 - Imprime a quebra de linha
+LV 04F            ; 0706 304F - Carrega "O" para o acumulador
+PD 100            ; 0708 E100 - Imprime "O"
+LV 050            ; 070A 3050 - Carrega "P" para o acumulador
+PD 100            ; 070C E100 - Imprime "P"
+LV 03A            ; 070E 303A - Carrega ":" para o acumulador
+PD 100            ; 0710 E100 - Imprime ":"
+LV 020            ; 0712 3020 - Carrega " " para o acumulador
+PD 100            ; 0714 E100 - Imprime " "
+LD OP             ; 0716 8010 - Carrega o valor de OPCODE para o acumulador
+- K00A            ; 0718 503E - Subtrai 0x00A do valor do acumulador
+JN IMPRIMENUMS    ; 071A 2744 - Desvio se acumulador é negativo
+LD OP             ; 071C 8010 - Carrega o valor de OPCODE para o acumulador
++ K037            ; 071E 4040 - Soma 0x037 ao valor de OPCODE
+PD 100            ; 0720 E100 - Imprime o valor de OPCODE
+LV 020            ; 0722 3020 - Carrega " " para o acumulador
+PD 100            ; 0724 E100 - Imprime " "
+LV 04D            ; 0726 304D - Carrega "M" para o acumulador
+PD 100            ; 0728 E100 - Imprime "M"
+LV 04E            ; 072A 304E - Carrega "N" para o acumulador
+PD 100            ; 072C E100 - Imprime "N"
+LV 045            ; 072E 3045 - Carrega "E" para o acumulador
+PD 100            ; 0730 E100 - Imprime "E"
+LV 04D            ; 0732 304D - Carrega "M" para o acumulador
+PD 100            ; 0734 E100 - Imprime "M"
+LV 03A            ; 0736 303A - Carrega ":" para o acumulador
+PD 100            ; 0738 E100 - Imprime ":"
+LV 020            ; 073A 3020 - Carrega " " para o acumulador
+PD 100            ; 073C E100 - Imprime " "
+LD MNEM           ; 073E 8012 - Carrega o valor de MNEM para o acumulador
+PD 100            ; 0740 E100 - Imprime o valor de MNEM
+#IMPRIME          ; 0742 B700 - Retorna para o endereço em 0x700
+IMPRIMENUMS LD OP ; 0744 8010 - Carrega o valor de OPCODE para o acumulador
++ K03C            ; 0746 403C - Soma 0x030 ao valor de OPCODE
+PD 100            ; 0748 E100 - Imprime o valor de OPCODE
+LV 020            ; 074A 3020 - Carrega " " para o acumulador
+PD 100            ; 074C E100 - Imprime " "
+LV 04D            ; 074E 304D - Carrega "M" para o acumulador
+PD 100            ; 0750 E100 - Imprime "M"
+LV 04E            ; 0752 304E - Carrega "N" para o acumulador
+PD 100            ; 0754 E100 - Imprime "N"
+LV 045            ; 0756 3045 - Carrega "E" para o acumulador
+PD 100            ; 0758 E100 - Imprime "E"
+LV 04D            ; 075A 304D - Carrega "M" para o acumulador
+PD 100            ; 075C E100 - Imprime "M"
+LV 03A            ; 075E 303A - Carrega ":" para o acumulador
+PD 100            ; 0760 E100 - Imprime ":"
+LV 020            ; 0762 3020 - Carrega " " para o acumulador
+PD 100            ; 0764 E100 - Imprime " "
+LD MNEM           ; 0766 8012 - Carrega o valor de MNEM para o acumulador
+PD 100            ; 0768 E100 - Imprime o valor de MNEM
+#IMPRIME          ; 076A B700 - Retorna para o endereço em 0x700
 ; ================================================================================
 ; Testes para a função OP2MNEM
 ; ================================================================================
