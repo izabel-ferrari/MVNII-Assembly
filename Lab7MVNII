@@ -28,7 +28,7 @@ OP2MNEM  LD OP ; 0102 8010 - Carrega o valor de OP no acumulador
         JN OP0 ; 0106 2146 - Desvio se o acumulador é negativo (OPCODE = 0x000)
         - K001 ; 0108 5028 - Subtrai 0x001 do valor do acumulador
         JN OP1 ; 010A 214C - Desvio se o acumulador é negativo (OPCODE = 0x001)
-        - K028 ; 010C 5028 - Subtrai 0x001 do valor do acumulador
+        - K001 ; 010C 5028 - Subtrai 0x001 do valor do acumulador
         JN OP2 ; 010E 2152 - Desvio se o acumulador é negativo (OPCODE = 0x002)
         - K001 ; 0110 5028 - Subtrai 0x001 do valor do acumulador
         JN OP3 ; 0112 2158 - Desvio se o acumulador é negativo (OPCODE = 0x003)
